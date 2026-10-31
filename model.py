@@ -13,8 +13,20 @@ def create_bandit_testbed(k, seed, mean=0.0, std=1.0):
     true_action_value=rng.normal(mean,std,k)
     return true_action_value
 
-# Step 2 - pull_arm (not yet solved)
-# TODO: implement
+# Step 2 - pull_arm
+def pull_arm(true_values, action, rng):
+    """Pull one arm and return reward = true value + unit-normal noise.
+
+    Args:
+        true_values (np.ndarray): Shape (k,) true mean reward of each arm.
+        action (int): Index of the arm to pull.
+        rng (np.random.Generator): Seeded random generator for the noise.
+
+    Returns:
+        float: Stochastic reward for this pull.
+    """
+    # TODO: Return the arm's true value plus unit-normal noise from rng
+    return true_values[action] + rng.normal(0,1)
 
 # Step 3 - sample_average_update (not yet solved)
 # TODO: implement
