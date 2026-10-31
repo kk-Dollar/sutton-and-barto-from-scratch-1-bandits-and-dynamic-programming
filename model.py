@@ -28,8 +28,14 @@ def pull_arm(true_values, action, rng):
     # TODO: Return the arm's true value plus unit-normal noise from rng
     return true_values[action] + rng.normal(0,1)
 
-# Step 3 - sample_average_update (not yet solved)
-# TODO: implement
+# Step 3 - sample_average_update
+def sample_average_update(q_values, action_counts, action, reward):
+    # TODO: Update an action-value estimate incrementally from one new reward...
+    new_action_counts=action_counts.copy()
+    new_q_values=q_values.copy()
+    new_action_counts[action]+=1
+    new_q_values[action]= new_q_values[action]+ (1/new_action_counts[action])*(reward-new_q_values[action])
+    return new_q_values,new_action_counts
 
 # Step 4 - epsilon_greedy_action (not yet solved)
 # TODO: implement
